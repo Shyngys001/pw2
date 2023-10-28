@@ -84,6 +84,11 @@ fun TipTimeLayout() {
  * according to the local currency.
  * Example would be "$10.00".
  */
+
+ private fun calculateTip(amount: Double, tipPercent: Double = 15.0): String {
+   val tip = tipPercent / 100 * amount
+   return NumberFormat.getCurrencyInstance().format(tip)
+}
 private fun calculateTip(amount: Double, tipPercent: Double = 15.0): String {
     val tip = tipPercent / 100 * amount
     return NumberFormat.getCurrencyInstance().format(tip)
