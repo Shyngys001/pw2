@@ -131,6 +131,26 @@ private fun calculateTip(amount: Double, tipPercent: Double = 15.0): String {
     return NumberFormat.getCurrencyInstance().format(tip)
 }
 
+@Composable
+fun EditNumberField(
+    @StringRes label: Int,
+    @DrawableRes leadingIcon: Int,
+    keyboardOptions: KeyboardOptions,
+    value: String,
+    onValueChanged: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    TextField(
+        value = value,
+        singleLine = true,
+        leadingIcon = { Icon(painter = painterResource(id = leadingIcon), null) },
+        modifier = modifier,
+        onValueChange = onValueChanged,
+        label = { Text(stringResource(label)) },
+        keyboardOptions = keyboardOptions
+    )
+}
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun TipTimeLayoutPreview() {
